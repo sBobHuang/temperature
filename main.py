@@ -12,7 +12,9 @@ Obloq.Obloq_http_setup(SerialPin.P2,
     SerialPin.P1,
     "tzcoder-1",
     "tzcoder.cn",
-    "192.168.31.2",
+    "192.168.123.48",
     8080)
 music.start_melody(music.built_in_melody(Melodies.NYAN), MelodyOptions.ONCE)
-basic.show_string("Hello!")
+while True:
+    radio.send_string(Obloq.Obloq_http_get("input?id=1&val=1", 10000))
+    basic.pause(5000)
